@@ -13,51 +13,54 @@
         <div class="col-md-8">
             <div class="card border-0 shadow-sm" style="border-radius:16px">
                 <div class="card-body p-0">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr style="background:#f8f9fa">
-                                <th class="ps-4 py-3">Producto</th>
-                                <th class="py-3">Precio</th>
-                                <th class="py-3">Cantidad</th>
-                                <th class="py-3">Subtotal</th>
-                                <th class="py-3"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($cart as $id => $item)
-                            <tr class="align-middle">
-                                <td class="ps-4 py-3">
-                                    <a href="{{ route('shop.products.show', $item['slug']) }}" class="text-decoration-none fw-semibold" style="color:#1a1a2e">
-                                        {{ $item['name'] }}
-                                    </a>
-                                </td>
-                                <td class="py-3" style="color:#E95A25;font-weight:600">${{ number_format($item['price'], 2) }}</td>
-                                <td class="py-3">
-                                    <form action="{{ route('shop.cart.update') }}" method="POST" class="d-flex align-items-center gap-2">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{ $id }}">
-                                        <div class="input-group" style="width:120px">
-                                            <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" class="form-control text-center" style="padding:6px">
-                                            <button type="submit" class="btn btn-outline-secondary btn-sm">
-                                                <i class="bi bi-arrow-clockwise"></i>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr style="background:#f8f9fa">
+                                    <th class="ps-4 py-3">Producto</th>
+                                    <th class="py-3 d-none d-md-table-cell">Precio</th>
+                                    <th class="py-3">Cantidad</th>
+                                    <th class="py-3">Subtotal</th>
+                                    <th class="py-3"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($cart as $id => $item)
+                                <tr class="align-middle">
+                                    <td class="ps-4 py-3">
+                                        <a href="{{ route('shop.products.show', $item['slug']) }}" class="text-decoration-none fw-semibold" style="color:#1a1a2e">
+                                            {{ $item['name'] }}
+                                        </a>
+                                        <p class="text-muted small mb-0 d-md-none" style="color:#E95A25">${{ number_format($item['price'], 2) }}</p>
+                                    </td>
+                                    <td class="py-3 d-none d-md-table-cell" style="color:#E95A25;font-weight:600">${{ number_format($item['price'], 2) }}</td>
+                                    <td class="py-3">
+                                        <form action="{{ route('shop.cart.update') }}" method="POST" class="d-flex align-items-center gap-1">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $id }}">
+                                            <div class="input-group" style="width:100px">
+                                                <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" class="form-control text-center" style="padding:6px">
+                                                <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                    <i class="bi bi-arrow-clockwise"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td class="py-3 fw-bold">${{ number_format($item['price'] * $item['quantity'], 2) }}</td>
+                                    <td class="py-3">
+                                        <form action="{{ route('shop.cart.remove') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $id }}">
+                                            <button type="submit" class="btn btn-outline-danger btn-sm rounded-circle" style="width:32px;height:32px;padding:0">
+                                                <i class="bi bi-trash"></i>
                                             </button>
-                                        </div>
-                                    </form>
-                                </td>
-                                <td class="py-3 fw-bold">${{ number_format($item['price'] * $item['quantity'], 2) }}</td>
-                                <td class="py-3">
-                                    <form action="{{ route('shop.cart.remove') }}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{ $id }}">
-                                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-circle" style="width:32px;height:32px;padding:0">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 

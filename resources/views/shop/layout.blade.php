@@ -255,6 +255,25 @@
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .navbar-brand { font-size: 1.3rem; }
+            .hero { padding: 50px 0; }
+            .hero h1 { font-size: 2rem; }
+            .product-card .card-body { padding: 10px; }
+            .product-card .price { font-size: 1rem; }
+            .category-card { height: 100px !important; }
+            footer { text-align: center; }
+            .table { font-size: 0.85rem; }
+            .btn-lg { padding: 10px 20px; font-size: 1rem; }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.3rem; }
+        }
     </style>
 </head>
 <body>
@@ -265,9 +284,9 @@
             <a class="navbar-brand" href="{{ route('shop.home') }}">
                 🚗 <span>Mani</span>jauto
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+   			<span class="navbar-toggler-icon"></span>
+		</button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">

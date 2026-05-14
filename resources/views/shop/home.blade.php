@@ -34,22 +34,30 @@
 <!-- Stats -->
 <div class="bg-white py-4 shadow-sm">
     <div class="container">
-        <div class="row text-center g-4">
+        <div class="row text-center g-3">
             <div class="col-6 col-md-3">
-                <h3 class="fw-bold" style="color:var(--primary)">+500</h3>
-                <p class="text-muted small mb-0">Productos</p>
+                <div class="p-3">
+                    <h3 class="fw-bold mb-1" style="color:#E95A25">+500</h3>
+                    <p class="text-muted small mb-0">Productos</p>
+                </div>
             </div>
             <div class="col-6 col-md-3">
-                <h3 class="fw-bold" style="color:var(--primary)">+1000</h3>
-                <p class="text-muted small mb-0">Clientes felices</p>
+                <div class="p-3">
+                    <h3 class="fw-bold mb-1" style="color:#E95A25">+1000</h3>
+                    <p class="text-muted small mb-0">Clientes</p>
+                </div>
             </div>
             <div class="col-6 col-md-3">
-                <h3 class="fw-bold" style="color:var(--primary)">24/7</h3>
-                <p class="text-muted small mb-0">Soporte</p>
+                <div class="p-3">
+                    <h3 class="fw-bold mb-1" style="color:#E95A25">24/7</h3>
+                    <p class="text-muted small mb-0">Soporte</p>
+                </div>
             </div>
             <div class="col-6 col-md-3">
-                <h3 class="fw-bold" style="color:var(--primary)">100%</h3>
-                <p class="text-muted small mb-0">Garantía</p>
+                <div class="p-3">
+                    <h3 class="fw-bold mb-1" style="color:#E95A25">100%</h3>
+                    <p class="text-muted small mb-0">Garantía</p>
+                </div>
             </div>
         </div>
     </div>
